@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>discombo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #e7ddb0; /* Dark background for futuristic look */
+            font-family: 'Roboto', sans-serif;
+        }
+        #topnav {
+            position: fixed;
+            top: 20px; /* Adjusted to float */
+            left: 50%;
+            transform: translateX(-50%); /* Center the navbar */
+            width: 80%; /* Set width to 80% */
+            background-color: rgba(10, 10, 10, 0.8); /* Semi-transparent background */
+            color: white;
+            padding: 15px 30px;
+            text-align: center; /* Align text to the right */
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+            border-radius: 10px; /* Rounded corners */
+            z-index: 10; /* Ensure it stays above the canvas */
+        }
+        #card-container {
+            position: fixed;
+            top: 100px; /* Below the navbar */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Space between cards */
+            z-index: 5; /* Ensure it stays above the canvas */
+            width: 80%; /* Match the navbar width */
+        }
+        .card {
+            background-color: rgba(50, 50, 50, 0.7); /* Brighter background for a futuristic look */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+            width: 100%; /* Full width of the container */
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 1.5s; /* Smooth transition for hover effects */
+            color: white; /* Text color for better visibility */
+        }
+        .card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+        }
+        .card-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .card-divider {
+            height: 2px; /* Height of the divider */
+            background-color: rgba(255, 255, 255, 0.3); /* Light color for the divider */
+            margin: 10px 0; /* Margin around the divider */
+        }
+        .card-body {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .card-footer {
+            font-size: 0.8em;
+            color: gray;
+        }
+        /* Horizontal rule styling */
+        .card-hr {
+            border: none;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3); /* Light color for the horizontal rule */
+            margin: 10px 0; /* Margin around the horizontal rule */
+        }
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(10, 10, 10, 0.9); /* Match navbar color */
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 10px;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
+        }
+        .dropdown:hover .dropdown-content {
+            display: block; /* Show dropdown on hover */
+        }
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(10, 10, 10, 0.7); /* Dark background for modal */
+        }
+        .modal-content {
+            background-color: rgba(30, 30, 30, 0.9); /* Match card color */
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 15px;
+            color: white; /* Text color for better visibility */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: white; /* Change close button color on hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="topnav">
+        <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <h2 style="margin: 0; padding-right: 20px;"><b>discombo</b></h2>
+            <div class="dropdown" style="margin-left: auto;">
+                <span>Menu</span>
+                <div class="dropdown-content">
+                    <a href="#">Item 1</a>
+                    <a href="#">Item 2</a>
+                    <a href="#">Item 3</a>
+                </div>
+            </div>
+            <a href="#" style="color: white; margin-left: 20px; text-decoration: none;">Link</a>
+        </span>
+    </div>
+    <div id="container"></div>
+    <div id="card-container"></div>
+    
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-body"></p>
+        </div>
+    </div>
+
+    <script src="konva.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>
