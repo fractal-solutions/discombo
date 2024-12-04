@@ -7,6 +7,51 @@
     <script src="https://unpkg.com/konva@9/konva.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #topnav {
+                width: 90%; /* Increase width for smaller screens */
+                padding: 10px; /* Reduce padding */
+            }
+            .card {
+                width: calc(100% - 10px); /* Full width of the container minus gap */
+                padding: 10px; /* Reduce padding */
+            }
+            .card-header {
+                font-size: 1.1em; /* Adjust font size */
+            }
+            .card-body {
+                font-size: 0.8em; /* Adjust font size */
+            }
+            .card-footer {
+                font-size: 0.7em; /* Adjust font size */
+            }
+            .close {
+                font-size: 24px; /* Adjust close button size */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #topnav {
+                padding: 8px; /* Further reduce padding */
+            }
+            .card {
+                padding: 8px; /* Further reduce padding */
+            }
+            .card-header {
+                font-size: 1em; /* Adjust font size */
+            }
+            .card-body {
+                font-size: 0.7em; /* Adjust font size */
+            }
+            .card-footer {
+                font-size: 0.6em; /* Adjust font size */
+            }
+            .close {
+                font-size: 20px; /* Adjust close button size */
+            }
+        }
         body {
             margin: 0;
             overflow: hidden;
@@ -138,50 +183,7 @@
             cursor: pointer;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            #topnav {
-                width: 90%; /* Increase width for smaller screens */
-                padding: 10px; /* Reduce padding */
-            }
-            .card {
-                width: calc(100% - 10px); /* Full width of the container minus gap */
-                padding: 10px; /* Reduce padding */
-            }
-            .card-header {
-                font-size: 1.1em; /* Adjust font size */
-            }
-            .card-body {
-                font-size: 0.8em; /* Adjust font size */
-            }
-            .card-footer {
-                font-size: 0.7em; /* Adjust font size */
-            }
-            .close {
-                font-size: 24px; /* Adjust close button size */
-            }
-        }
 
-        @media (max-width: 480px) {
-            #topnav {
-                padding: 8px; /* Further reduce padding */
-            }
-            .card {
-                padding: 8px; /* Further reduce padding */
-            }
-            .card-header {
-                font-size: 1em; /* Adjust font size */
-            }
-            .card-body {
-                font-size: 0.7em; /* Adjust font size */
-            }
-            .card-footer {
-                font-size: 0.6em; /* Adjust font size */
-            }
-            .close {
-                font-size: 20px; /* Adjust close button size */
-            }
-        }
     </style>
 </head>
 
