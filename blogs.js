@@ -1,118 +1,6 @@
-// Define a color palette for the cards with brighter colors and higher transparency
-const colorPalette = [
-    //'rgba(100, 100, 100, 0.8)', // Light gray
-    'rgba(150, 150, 150, 0.8)', // Lighter gray
-    'rgba(200, 200, 200, 0.8)', // Very light gray
-    'rgba(150, 150, 150, 0.8)', // Lighter gray
-    'rgba(200, 200, 200, 0.8)', // Very light gray
-    'rgba(100, 200, 100, 0.8)', // Light green-gray
-    'rgba(100, 100, 150, 0.8)', // Light navy
-    //'rgba(150, 100, 100, 0.8)', // Light maroon
-];
-
-// Function to create a card
-function createCard(title, shortDescription, body, footer) {
-    const cardContainer = document.getElementById('card-container');
-
-    // Create card element
-    const card = document.createElement('div');
-    card.className = 'card';
-
-    // Assign a random color from the palette
-    const randomColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
-    card.style.backgroundColor = randomColor; // Set the card's background color
-
-    // Create card header
-    const cardHeader = document.createElement('div');
-    cardHeader.className = 'card-header';
-    cardHeader.innerText = title;
-
-    // Create horizontal rule
-    const cardHr = document.createElement('hr');
-    cardHr.className = 'card-hr'; // Apply styling for horizontal rule
-
-    // Create card body
-    const cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
-    cardBody.innerText = shortDescription;
-
-    // Create card footer
-    const cardFooter = document.createElement('div');
-    cardFooter.className = 'card-footer';
-    cardFooter.innerText = footer;
-
-    // Append elements to card
-    card.appendChild(cardHeader);
-    card.appendChild(cardHr); // Add the horizontal rule
-    card.appendChild(cardBody);
-    card.appendChild(cardFooter);
-    cardContainer.appendChild(card);
-
-    // Add click event to open modal
-    card.onclick = function() {
-        openModal(title, body);
-    };
-}
-
-// Function to open modal
-function openModal(title, body) {
-    const modal = document.getElementById('myModal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-
-    modalTitle.innerText = title;
-    modalBody.innerHTML = body;
-    modal.style.display = "block"; // Show the modal
-}
-
-// Function to close modal
-function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = "none"; // Hide the modal
-}
-
-// Event listener for closing the modal
-document.querySelector('.close').onclick = closeModal;
-
-// Event listener for clicking outside the modal to close it
-window.onclick = function(event) {
-    const modal = document.getElementById('myModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-};
-
-//import { PAEDFramework } from "./blogs";
-
-// Example usage: Adding cards
-const titles = [
+const PAEDFramework = [
     "Price Action Energy Dynamics (PAED) Framework",
-    "Crazy How",
-    "Another Card Title" // Add more titles if needed
-];
-const shortDescriptions = [
-    "The PAED framework is a first-principles method for efficient trading based on price action, inspired by the Hopfield neural network’s energy-minimization dynamics. This framework views price behavior as a system governed by energy functions, with stable market patterns as attractor states.", // Short description for the first card
-    "This card provides insights into another topic.",
-    "This card provides insights into another topic."  // Short description for the second card
-];
-const bodies = [
-    PAEDFramework,
-    "Slim Through S",
-    `<h1>Another Card Body</h1><p>This is the body of another card.</p>` // Add more bodies if needed
-];
-const footers = [
-    "Fractal Dev",
-    "Footer", // First footer
-    "Another Footer" // Add more footers if needed
-];
-
-// Create cards for each entry
-for (let i = 0; i < titles.length; i++) {
-    createCard(titles[i],shortDescriptions[i], bodies[i], footers[i]);
-}
-
-
-var PAEDFramework = `
+    `<h1>Price Action Energy Dynamics (PAED) Framework</h1>
 <p>The <strong>PAED</strong> framework is a first-principles method for efficient trading based on price action, inspired by the Hopfield neural network’s energy-minimization dynamics. This framework views price behavior as a system governed by energy functions, with stable market patterns as attractor states. Here's the concise yet complete documentation for reference.</p>
 
 <hr>
@@ -192,4 +80,6 @@ reinforcing levels frequently co-active during specific patterns.
 
 <h2>Summary</h2>
 <p>The PAED framework models price action as a system minimizing energy, with trends, volatility, and liquidity influencing dynamics. Patterns are encoded as attractor states, and actionable signals are derived by interpreting system behavior.</p>
-`;
+`,
+"Fractal Dev"
+];

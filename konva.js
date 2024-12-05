@@ -187,3 +187,4 @@ var anim = new Konva.Animation(function() {
 
 // Start the animation
 anim.start(); 
+
